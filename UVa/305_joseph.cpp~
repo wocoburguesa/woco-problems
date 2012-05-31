@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+#include <map>
+#include <algorithm>
+#include <sstream>
+#include <math.h>
+
+using namespace std;
+
+bool test(vector<int> l, int n, int k){
+  int deleted = 0;
+  int idx = n;
+  int step = 0;
+  bool good = 1;
+  
+  while(deleted < k && good){
+    l[idx%l.size()] = 0;
+    deleted++;
+    while(step < n){
+      idx++;
+      if(l[idx%l.size()] < k)
+	return 0;
+      else;
+      if(l[idx%l.size()] != 0){
+	step++;
+      }
+    }
+    step = 0;
+  }
+  if(good)
+    return 1;
+  else
+    return 0;
+}
+
+int main(){
+  int k;
+  while(cin >> k && k){
+    vector<int> people;
+    for(int i = 0; i < 2*k; ++i)
+      people.push_back(i);
+
+    for(int i = k; i < 3*k; ++i){
+      if(test(plants, i, k)){
+	cout << i << endl;
+	break;
+      }
+    }
+  }
+  return 0;
+}

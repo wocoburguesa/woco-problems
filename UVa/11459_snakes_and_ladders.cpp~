@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+#include <map>
+#include <algorithm>
+#include <sstream>
+#include <math.h>
+
+using namespace std;
+
+int board[104];
+
+int main(){
+  int cases;
+  cin >> cases;
+  while(cases--){
+    int players, switches, rolls;
+    for(int i = 0; i < 104; ++i)
+      board[i] = 0;
+
+    int start, end;
+    while(switches--){
+      cin >> start >> end;
+      board[start] = end;
+    }
+
+    int pos[players];
+    for(int i = 0; i < players; ++i)
+      pos[i] = 1;
+
+    int roll, i;
+    for(i = 0; i < rolls; ++i){
+      cin >> roll;
+      pos[i] += roll;
+      if(pos[i] >= 100){
+	gameover = 1;
+	break;
+      }
+
+      while(board[pos[i]] != 0)
+	pos[i] = board[pos[i]];
+    }
+    for(; i < rolls; ++i){
+      cin >> roll;
+    }
+
+    for(i = 0; i < players; ++i){
+      cout << "Position of player " << i+1 << " is " << pos[i] << ".\n";
+    }
+    
+  }
+  return 0;
+}
