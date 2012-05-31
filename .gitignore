@@ -1,0 +1,21 @@
+# Editor/IDE files
+*.swp
+*.swo
+\#.#
+*/.#*
+\#*
+.#*
+*~
+*.idea
+
+#C++
+.cpp[co]
+
+#Executables
+.out
+
+# OS specific files
+.DS_Store
+
+*.log
+*.pot
